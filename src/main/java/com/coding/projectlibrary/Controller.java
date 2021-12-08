@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -66,6 +68,15 @@ public class Controller implements Initializable {
     @FXML
     private TextField txtTitre;
 
+    @FXML
+    private HBox containerAll;
+
+    @FXML
+    private VBox containerDroite;
+
+    @FXML
+    private VBox containerGauche;
+
     public static ObservableList<Tab> tablist;
 
     @FXML
@@ -76,15 +87,34 @@ public class Controller implements Initializable {
             removeTab();
         }else if(event.getSource() == btnUpdate){
             updateTab();
+        }else if(event.getSource() == btnValidez){
+            validezTab();
         }
     }
 
-    public void ajoutTab() {
+    public void validezTab(){
         Tab tabs = new Tab(txtTitre.getText(), txtAuteur.getText(), Integer.parseInt(txtParution.getText()), Integer.parseInt(txtColonne.getText()), Integer.parseInt(txtRange.getText()), txtResume.getText());
         tablist = tabContainer.getItems();
         tablist.add(tabs);
         tabContainer.setItems(tablist);
     }
+
+    public void ajoutTab() {
+        btnAjout.setOnMouseClicked(action->{
+            containerAll.getChildren().addAll(containerGauche, containerDroite);
+        });
+    }
+
+//        containerCentral.getChildren().removeAll(formvoiture, formvelo);
+//        btnVoiture.setOnMouseClicked(actionVoitureForm -> {
+//            containerCentral.getChildren().removeAll(formvoiture, formvelo);
+//            containerCentral.getChildren().add(formvoiture);
+//        });
+//
+//        btnVelo.setOnMouseClicked(actionVeloForm -> {
+//            containerCentral.getChildren().removeAll(formvoiture, formvelo);
+//            containerCentral.getChildren().add(formvelo);
+//        });
 
     public void removeTab() {
         int getSelectedIndex = tabContainer.getSelectionModel().getSelectedIndex();
@@ -125,6 +155,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        containerAll.getChildren().removeAll(containerGauche, containerDroite);
         tabContainer.setEditable(true);
         colName.setCellValueFactory(new PropertyValueFactory<Tab, String>("titre"));
         colAuteur.setCellValueFactory(new PropertyValueFactory<Tab, String>("auteur"));
