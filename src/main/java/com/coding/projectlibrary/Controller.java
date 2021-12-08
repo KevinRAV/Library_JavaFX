@@ -13,6 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.NoSuchElementException;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -94,9 +95,17 @@ public class Controller implements Initializable {
 
     public void validezTab(){
         Tab tabs = new Tab(txtTitre.getText(), txtAuteur.getText(), Integer.parseInt(txtParution.getText()), Integer.parseInt(txtColonne.getText()), Integer.parseInt(txtRange.getText()), txtResume.getText());
-        tablist = tabContainer.getItems();
-        tablist.add(tabs);
-        tabContainer.setItems(tablist);
+//La colonne min est 1 et la max 5
+        int getRange = Integer.parseInt(txtRange.getText());
+        int getColonne = Integer.parseInt(txtColonne.getText());
+
+        if(getRange < 1 || getRange > 7 || getColonne < 1 || getColonne > 5) {
+            System.out.println("error Range et Colonne");
+        }else{
+            tablist = tabContainer.getItems();
+            tablist.add(tabs);
+            tabContainer.setItems(tablist);
+        }
     }
 
     public void ajoutTab() {
@@ -105,17 +114,6 @@ public class Controller implements Initializable {
             containerAll.getChildren().addAll(containerGauche, containerDroite);
         });
     }
-
-//        containerCentral.getChildren().removeAll(formvoiture, formvelo);
-//        btnVoiture.setOnMouseClicked(actionVoitureForm -> {
-//            containerCentral.getChildren().removeAll(formvoiture, formvelo);
-//            containerCentral.getChildren().add(formvoiture);
-//        });
-//
-//        btnVelo.setOnMouseClicked(actionVeloForm -> {
-//            containerCentral.getChildren().removeAll(formvoiture, formvelo);
-//            containerCentral.getChildren().add(formvelo);
-//        });
 
     public void removeTab() {
         int getSelectedIndex = tabContainer.getSelectionModel().getSelectedIndex();
@@ -129,25 +127,6 @@ public class Controller implements Initializable {
         tablist = tabContainer.getItems();
         tablist.add(getSelectedIndex, tabs);
         tabContainer.setItems(tablist);
-
-//        colName.setCellFactory(TextFieldTableCell.forTableColumn());
-//        colName.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Tab, String>>() {
-//            @Override
-//            public void handle(TableColumn.CellEditEvent<Tab, String> event) {
-//                Tab tab = event.getRowValue();
-//                tab.setTitre(event.getNewValue());
-//            }
-//        });
-
-//        tabID.setTitre(txtTitre.getText());
-//        tabID.setAuteur(txtAuteur.getText());
-//        tabID.setParution(Integer.parseInt(txtParution.getText()));
-//        tabID.setColonne(Integer.parseInt(txtColonne.getText()));
-//        tabID.setRange(Integer.parseInt(txtRange.getText()));
-//        tabID.setResume(txtResume.getText());
-//        tabContainer.getItems().add(tabContainer.getSelectionModel().getSelectedIndex(), tabID);
-//        tabContainer.getItems().remove(tabContainer.getSelectionModel().getSelectedIndex() - 1);
-
     }
 
     @FXML
@@ -164,7 +143,7 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         containerAll.getChildren().removeAll(containerGauche, containerDroite);
-        tabContainer.setEditable(true);
+        //tabContainer.setEditable(true);
         colName.setCellValueFactory(new PropertyValueFactory<Tab, String>("titre"));
         colAuteur.setCellValueFactory(new PropertyValueFactory<Tab, String>("auteur"));
         colParution.setCellValueFactory(new PropertyValueFactory<Tab, Integer>("parution"));
