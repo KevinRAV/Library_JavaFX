@@ -123,14 +123,21 @@ public class Controller implements Initializable {
     }
 
     public void updateTab(){
-        colName.setCellFactory(TextFieldTableCell.forTableColumn());
-        colName.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Tab, String>>() {
-            @Override
-            public void handle(TableColumn.CellEditEvent<Tab, String> event) {
-                Tab tab = event.getRowValue();
-                tab.setTitre(event.getNewValue());
-            }
-        });
+        int getSelectedIndex = tabContainer.getSelectionModel().getSelectedIndex();
+        tabContainer.getItems().remove(getSelectedIndex);
+        Tab tabs = new Tab(txtTitre.getText(), txtAuteur.getText(), Integer.parseInt(txtParution.getText()), Integer.parseInt(txtColonne.getText()), Integer.parseInt(txtRange.getText()), txtResume.getText());
+        tablist = tabContainer.getItems();
+        tablist.add(getSelectedIndex, tabs);
+        tabContainer.setItems(tablist);
+
+//        colName.setCellFactory(TextFieldTableCell.forTableColumn());
+//        colName.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Tab, String>>() {
+//            @Override
+//            public void handle(TableColumn.CellEditEvent<Tab, String> event) {
+//                Tab tab = event.getRowValue();
+//                tab.setTitre(event.getNewValue());
+//            }
+//        });
 
 //        tabID.setTitre(txtTitre.getText());
 //        tabID.setAuteur(txtAuteur.getText());
