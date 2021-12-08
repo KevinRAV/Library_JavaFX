@@ -13,6 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.Calendar;
 import java.util.NoSuchElementException;
 import java.util.ResourceBundle;
 
@@ -89,19 +90,37 @@ public class Controller implements Initializable {
         }else if(event.getSource() == btnUpdate){
             updateTab();
         }else if(event.getSource() == btnValidez){
-            validezTab();
+            try{
+                validezTab();
+            }catch (Exception e){
+                System.out.println("error validezBtn");
+            }
         }
     }
 
     public void validezTab(){
         Tab tabs = new Tab(txtTitre.getText(), txtAuteur.getText(), Integer.parseInt(txtParution.getText()), Integer.parseInt(txtColonne.getText()), Integer.parseInt(txtRange.getText()), txtResume.getText());
-//La colonne min est 1 et la max 5
-        int getRange = Integer.parseInt(txtRange.getText());
+        String getTitre = txtTitre.getText();
+        String getAuteur = txtAuteur.getText();
+        int getParution = Integer.parseInt(txtParution.getText());
         int getColonne = Integer.parseInt(txtColonne.getText());
+        int getRange = Integer.parseInt(txtRange.getText());
+        String getResume = txtResume.getText();
+        int year = Calendar.getInstance().get(Calendar.YEAR);
 
-        if(getRange < 1 || getRange > 7 || getColonne < 1 || getColonne > 5) {
-            System.out.println("error Range et Colonne");
-        }else{
+        if(getTitre.trim().isEmpty()){
+            System.out.println("error Titre");
+        }else if(getAuteur.trim().isEmpty()){
+            System.out.println("error Auteur");
+        } else if(getRange < 1 || getRange > 7 ) {
+            System.out.println("error Range");
+        }else if(getColonne < 1 || getColonne > 5){
+            System.out.println("error Colonne");
+        }else if(getParution > year){
+            System.out.println("error date");
+        }else if(getResume.trim().isEmpty()){
+            System.out.println("error Resume");
+        } else{
             tablist = tabContainer.getItems();
             tablist.add(tabs);
             tabContainer.setItems(tablist);
@@ -116,17 +135,23 @@ public class Controller implements Initializable {
     }
 
     public void removeTab() {
+
+//        Si aucune ligne n’est sélectionnée, l’utilisateur sera prévenu par un
+//        message d’erreur.
+
         int getSelectedIndex = tabContainer.getSelectionModel().getSelectedIndex();
         tabContainer.getItems().remove(getSelectedIndex);
     }
 
     public void updateTab(){
-        int getSelectedIndex = tabContainer.getSelectionModel().getSelectedIndex();
-        tabContainer.getItems().remove(getSelectedIndex);
-        Tab tabs = new Tab(txtTitre.getText(), txtAuteur.getText(), Integer.parseInt(txtParution.getText()), Integer.parseInt(txtColonne.getText()), Integer.parseInt(txtRange.getText()), txtResume.getText());
-        tablist = tabContainer.getItems();
-        tablist.add(getSelectedIndex, tabs);
-        tabContainer.setItems(tablist);
+        Tab tab = tabContainer.getSelectionModel().getSelectedItem();
+        tab.setTitre(txtTitre.getText());
+        tab.setAuteur(txtAuteur.getText());
+        tab.setParution(Integer.parseInt(txtParution.getText()));
+        tab.setColonne(Integer.parseInt(txtColonne.getText()));
+        tab.setRange(Integer.parseInt(txtRange.getText()));
+        tab.setResume(txtResume.getText());
+        tabContainer.refresh();
     }
 
     @FXML
@@ -143,7 +168,6 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         containerAll.getChildren().removeAll(containerGauche, containerDroite);
-        //tabContainer.setEditable(true);
         colName.setCellValueFactory(new PropertyValueFactory<Tab, String>("titre"));
         colAuteur.setCellValueFactory(new PropertyValueFactory<Tab, String>("auteur"));
         colParution.setCellValueFactory(new PropertyValueFactory<Tab, Integer>("parution"));
@@ -151,4 +175,6 @@ public class Controller implements Initializable {
         colRange.setCellValueFactory(new PropertyValueFactory<Tab, Integer>("range"));
         colResume.setCellValueFactory(new PropertyValueFactory<Tab, String>("resume"));
     }
+
 }
+

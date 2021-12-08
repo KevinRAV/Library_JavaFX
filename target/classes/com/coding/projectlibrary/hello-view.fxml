@@ -59,7 +59,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TableView fx:id="tabContainer" layoutX="16.0" layoutY="50.0" onMouseClicked="#handleMouseAction" prefHeight="278.0" prefWidth="395.0" stylesheets="@style.css">
+      <TableView fx:id="tabContainer" layoutX="16.0" layoutY="50.0" onMouseClicked="#handleMouseAction" prefHeight="278.0" prefWidth="395.0">
         <columns>
           <TableColumn fx:id="colName" prefWidth="65.0" text="Name" />
           <TableColumn fx:id="colAuteur" prefWidth="69.0" text="Auteur" />

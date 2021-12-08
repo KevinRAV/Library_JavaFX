@@ -64,4 +64,15 @@ public class Tab {
     public void setResume(String resume) {
         this.resume = resume;
     }
+
+    @Override
+    public String toString() {
+        return "Tab : " +
+                "titre='" + titre + '\'' +
+                ", auteur='" + auteur + '\'' +
+                ", parution=" + parution +
+                ", colonne=" + colonne +
+                ", range=" + range +
+                ", resume='" + resume + '\'';
+    }
 }
