@@ -101,6 +101,7 @@ public class Controller implements Initializable {
 
     public void ajoutTab() {
         btnAjout.setOnMouseClicked(action->{
+            containerAll.getChildren().removeAll(containerGauche, containerDroite);
             containerAll.getChildren().addAll(containerGauche, containerDroite);
         });
     }
