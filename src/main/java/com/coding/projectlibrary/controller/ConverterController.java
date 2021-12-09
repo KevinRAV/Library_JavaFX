@@ -10,6 +10,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ConverterController implements Initializable {
@@ -44,14 +46,52 @@ public class ConverterController implements Initializable {
     @FXML
     private TextField valeurBinaire2;
 
+    @FXML
+    private TextField valDecimal;
+
+    @FXML
+    private TextField valHexa;
+
+    @FXML
+    private Button btnHexa;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        btnHexa.setOnMouseClicked(e->{
+            int hexaVal = Integer.parseInt(valDecimal.getText());
+            String hexa = "";
+            char[] hexchars ={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+            while (hexaVal >0){
+                hexa += hexchars[(hexaVal % 16)];
+                hexaVal = hexaVal / 16;
+                valHexa.setText(hexa);
+            }
+        });
+
         // Convertir d'un nombre decimal à un nombre binaire
         btnConvertir.setOnMouseClicked(e -> {
-            int decimalInput = Integer.parseInt(decimal.getText());
-            String binaryInput = Integer.toBinaryString(decimalInput);
-            valeurBinaire.setText(String.valueOf(binaryInput));
+            int decimaltxt = Integer.parseInt(decimal.getText());
+            String binaire= "";
+            while(decimaltxt != 0){
+                binaire = (decimaltxt % 2) + binaire;
+                decimaltxt = decimaltxt / 2;
+                valeurBinaire.setText(binaire);
+            }
+        });
+
+//        btnConvertir1.setOnMouseClicked(e->{
+//            int binaire = Integer.parseInt(valeurBinaire2.getText());
+//
+//
+//            decimal2.setText();
+//        });
+
+//            int decimalInput = Integer.parseInt(decimal.getText());
+//            String binaryInput = Integer.toBinaryString(decimalInput);
+//            valeurBinaire.setText(String.valueOf(binaryInput));
+
+            
 
 //            int binary[] = new int[40];
 //            int index = 0;
@@ -64,7 +104,7 @@ public class ConverterController implements Initializable {
 //                valeurBinaire.setText(String.valueOf(binary[i]));
 //            }
 //            System.out.println();//new line
-        });
+
 
         //Convertir un nombre binaire en un nombre decimal
 
