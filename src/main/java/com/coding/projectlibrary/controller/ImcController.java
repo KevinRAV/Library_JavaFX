@@ -54,38 +54,6 @@ public class ImcController implements Initializable {
 
 
 
-//    @FXML
-//    private void handleButtonAction(ActionEvent event) {
-//        if(event.getSource() == btnCalculez){
-//            double valeurKg =0;
-//            double valeurCm = 0;
-//            double imc = valeurKg / (valeurCm  * valeurCm );
-//
-//            switch ((int) imc){
-//
-//                case 1:
-//                    if (imc < 18.5)
-//                        System.out.println("Vous êtes en situation de sous poids : "+imc);
-//                case 2:
-//                    if (18.5 >= imc  &&  imc <= 24.9 )
-//                        System.out.println("Vous êtes en situation normale : "+imc);
-//                case 3:
-//                    if (25 >= imc  &&  imc <= 29.9 )
-//                        System.out.println("Vous êtes en situation surpoids : "+imc);
-//                case 4:
-//                    if (30 >= imc  &&  imc <= 34.9 )
-//                        System.out.println("Vous êtes en situation d'obésité : "+imc);
-//                default:
-//                    if (imc > 35 )
-//                        System.out.println("Vous êtes en situation d'obésité severe : "+imc);
-//            }
-//
-//
-//        }
-//    }
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         valeurKg.textProperty().addListener(new ChangeListener<String>() {
@@ -127,90 +95,6 @@ public class ImcController implements Initializable {
             }
             resultatImc.setText(String.valueOf(imc));
 
-    });
-//
-//            switch (imc){
-//
-//                case 1:
-//                    if (imc < 18.5)
-//                        System.out.println("Vous êtes en situation de sous poids : "+imc);
-//                case 2:
-//                    if (18.5 >= imc  &&  imc <= 24.9 )
-//                        System.out.println("Vous êtes en situation normale : "+imc);
-//                case 3:
-//                    if (25 >= imc  &&  imc <= 29.9 )
-//                        System.out.println("Vous êtes en situation surpoids : "+imc);
-//                case 4:
-//                    if (30 >= imc  &&  imc <= 34.9 )
-//                        System.out.println("Vous êtes en situation d'obésité : "+imc);
-//                default:
-//                    if (imc > 35 )
-//                        System.out.println("Vous êtes en situation d'obésité severe : "+imc);
-//            System.out.println(imc);
-//            }
-//        });
-
-
-
-//    //Geter
-//    public Integer getImc() {
-//        return this.imc; ("quand on met this on parle des propriétés qui me concerne")
-//    }
-
-
-//    public static calculImc () {
-//        double valeurKg =0;
-//        double valeurCm = 0;
-//        double imc = valeurKg / (valeurCm  * valeurCm );
-//
-//        switch (){
-//
-//            case 1:
-//                if (imc < 18.5)
-//                    System.out.println("Vous êtes en situation de sous poids : "+imc);
-//            case 2:
-//                if (18.5 >= imc  &&  imc <= 24.9 )
-//                    System.out.println("Vous êtes en situation normale : "+imc);
-//            case 3:
-//                if (25 >= imc  &&  imc <= 29.9 )
-//                    System.out.println("Vous êtes en situation surpoids : "+imc);
-//            case 4:
-//                if (30 >= imc  &&  imc <= 34.9 )
-//                    System.out.println("Vous êtes en situation d'obésité : "+imc);
-//            default:
-//                if (imc > 35 )
-//                    System.out.println("Vous êtes en situation d'obésité severe : "+imc);
-//        }
-//
-//
-//}
-
-
-// double btnKg = 0;
-//    double btnCm = 0;
-//    imc = (kg/cm*cm)
-//
-//            switch(nu
-//            m+2)
-//    {
-//        case 1:
-//            if (imc < 18.5)
-//            System.out.println("Vous êtes en situation de sous poids : "+imc);
-//        case 2:
-//            if (18.5 >= imc  &&  imc <= 24.9 )
-//                System.out.println("Vous êtes en situation normale : "+imc);
-//        case 3:
-//            if (25 >= imc  &&  imc <= 29.9 )
-//                System.out.println("Vous êtes en situation surpoids : "+imc);
-//        case 4:
-//            if (30 >= imc  &&  imc <= 34.9 )
-//                System.out.println("Vous êtes en situation d'obésité : "+imc);
-//        default:
-//            if (imc > 35 )
-//                System.out.println("Vous êtes en situation d'obésité severe : "+imc);
-//    }
-//}
-//}
-
-
-}}
+        });
+    }
+}
