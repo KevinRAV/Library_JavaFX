@@ -35,22 +35,30 @@ public class MainController implements Initializable {
     @FXML
     private AnchorPane imc;
 
+    @FXML
+    private AnchorPane converter;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        mainPage.getChildren().removeAll(library);
+        mainPage.getChildren().removeAll(library, imc, converter);
 
         btnLibrary.setOnMouseClicked(e -> {
-
+            mainPage.getChildren().removeAll(imc);
+            mainPage.getChildren().removeAll(converter);
             mainPage.getChildren().add(library);
-        }
-
-        );
-        mainPage.getChildren().removeAll(imc);
+        });
 
         btnImc.setOnMouseClicked(e -> {
-
+            mainPage.getChildren().removeAll(library);
+            mainPage.getChildren().removeAll(converter);
             mainPage.getChildren().add(imc);
+        });
+
+        btnConverter.setOnMouseClicked(e -> {
+            mainPage.getChildren().removeAll(library);
+            mainPage.getChildren().removeAll(imc);
+            mainPage.getChildren().add(converter);
         });
     }
 
