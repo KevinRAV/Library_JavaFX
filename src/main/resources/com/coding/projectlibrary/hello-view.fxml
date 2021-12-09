@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -9,33 +10,47 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coding.projectlibrary.Controller">
    <children>
-      <HBox fx:id="containerAll" layoutX="417.0" layoutY="51.0" prefHeight="313.0" prefWidth="169.0">
+      <HBox fx:id="containerAll" layoutX="417.0" layoutY="73.0" prefHeight="313.0" prefWidth="169.0">
          <children>
-            <VBox fx:id="containerGauche" prefHeight="177.0" prefWidth="52.0" spacing="15.0">
+            <VBox fx:id="containerGauche" prefHeight="313.0" prefWidth="91.0" spacing="15.0">
                <children>
                   <Label text="Titre :" />
                   <Label text="Auteur :" />
                   <Label text="Parution :" />
                   <Label text="Colonne :" />
                   <Label text="Rangée :" />
+                  <Label text="URL image :   ">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
                   <Label text="Résumé :" />
                </children>
             </VBox>
-            <VBox fx:id="containerDroite" prefHeight="294.0" prefWidth="100.0" spacing="5.0">
+            <VBox fx:id="containerDroite" prefHeight="313.0" prefWidth="123.0" spacing="5.0">
                <children>
                   <TextField fx:id="txtTitre" />
                   <TextField fx:id="txtAuteur" />
                   <TextField fx:id="txtParution" />
                   <TextField fx:id="txtColonne" />
                   <TextField fx:id="txtRange" />
-                  <TextArea fx:id="txtResume" prefHeight="200.0" prefWidth="200.0" />
-                  <Button fx:id="btnValidez" mnemonicParsing="false" onAction="#handleButtonAction" text="Validez" />
+                  <TextField fx:id="getURL" />
+                  <TextArea fx:id="txtResume" prefHeight="65.0" prefWidth="88.0" />
+                  <Button fx:id="btnValidez" mnemonicParsing="false" text="Validez" />
                </children>
             </VBox>
          </children>
@@ -44,7 +59,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="menuQuit" mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -59,7 +74,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TableView fx:id="tabContainer" layoutX="16.0" layoutY="50.0" onMouseClicked="#handleMouseAction" prefHeight="278.0" prefWidth="395.0">
+      <TableView fx:id="tabContainer" layoutX="16.0" layoutY="50.0" prefHeight="278.0" prefWidth="395.0">
         <columns>
           <TableColumn fx:id="colName" prefWidth="65.0" text="Name" />
           <TableColumn fx:id="colAuteur" prefWidth="69.0" text="Auteur" />
@@ -67,10 +82,33 @@
             <TableColumn fx:id="colColonne" prefWidth="51.0" text="Colonne" />
             <TableColumn fx:id="colRange" prefWidth="52.0" text="Rangée" />
             <TableColumn fx:id="colParution" prefWidth="53.0" text="Parution" />
+            <TableColumn fx:id="imgUrl" prefWidth="75.0" text="imgURL" />
         </columns>
       </TableView>
-      <Button fx:id="btnAjout" layoutX="118.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Add" />
-      <Button fx:id="btnRemove" layoutX="186.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Remove" />
-      <Button fx:id="btnUpdate" layoutX="273.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Update" />
+      <Button fx:id="btnAjout" layoutX="118.0" layoutY="332.0" mnemonicParsing="false" text="Add" />
+      <Button fx:id="btnRemove" layoutX="186.0" layoutY="332.0" mnemonicParsing="false" text="Remove" />
+      <Button fx:id="btnUpdate" layoutX="273.0" layoutY="332.0" mnemonicParsing="false" text="Update" />
+      <Label fx:id="lblError" layoutX="214.0" layoutY="364.0">
+         <font>
+            <Font name="Avenir Next Bold" size="15.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.8666666746139526" green="0.20000000298023224" blue="0.20000000298023224" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.8666666746139526" green="0.20000000298023224" blue="0.20000000298023224" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <ImageView fx:id="imgCover" fitHeight="54.0" fitWidth="101.0" layoutX="486.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

@@ -7,14 +7,16 @@ public class Tab {
     private int colonne;
     private int range;
     private String resume;
+    private String url;
 
-    public Tab(String titre, String auteur,int parution,int colonne,int range, String resume) {
+    public Tab(String titre, String auteur,int parution,int colonne,int range, String resume, String url) {
         this.titre = titre;
         this.auteur = auteur;
         this.parution = parution;
         this.colonne = colonne;
         this.range = range;
         this.resume = resume;
+        this.url = url;
     }
 
     public String getTitre() {
@@ -35,6 +37,14 @@ public class Tab {
 
     public int getRange() {
         return range;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getResume() {
