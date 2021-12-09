@@ -34,10 +34,10 @@
             </TextField>
          </children>
          <padding>
-            <Insets left="20.0" top="80.0" />
+            <Insets left="20.0" top="30.0" />
          </padding>
       </HBox>
-      <HBox layoutY="212.0" prefHeight="142.0" prefWidth="606.0" spacing="10.0">
+      <HBox layoutY="174.0" prefHeight="147.0" prefWidth="606.0" spacing="10.0">
          <children>
             <Label prefHeight="21.0" prefWidth="105.0" text="Valeur Binaire">
                <HBox.margin>
@@ -66,10 +66,10 @@
             </TextField>
          </children>
          <padding>
-            <Insets left="20.0" top="20.0" />
+            <Insets left="20.0" />
          </padding>
       </HBox>
-      <HBox layoutX="4.0" layoutY="303.0" prefHeight="142.0" prefWidth="606.0" spacing="10.0">
+      <HBox layoutX="4.0" layoutY="248.0" prefHeight="114.0" prefWidth="606.0" spacing="10.0">
          <children>
             <Label prefHeight="21.0" prefWidth="105.0" text="Valeur Décimal">
                <HBox.margin>
@@ -98,10 +98,10 @@
             </TextField>
          </children>
          <padding>
-            <Insets left="20.0" top="20.0" />
+            <Insets left="20.0" />
          </padding>
       </HBox>
-      <HBox layoutX="14.0" layoutY="384.0" prefHeight="122.0" prefWidth="606.0" spacing="10.0">
+      <HBox layoutX="14.0" layoutY="322.0" prefHeight="120.0" prefWidth="606.0" spacing="10.0">
          <children>
             <Label prefHeight="21.0" prefWidth="105.0" text="Valeur Décimal">
                <HBox.margin>
@@ -130,7 +130,7 @@
             </TextField>
          </children>
          <padding>
-            <Insets left="10.0" top="20.0" />
+            <Insets left="10.0" />
          </padding>
       </HBox>
    </children>
