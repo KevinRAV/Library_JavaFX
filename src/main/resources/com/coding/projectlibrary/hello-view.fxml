@@ -35,7 +35,7 @@
                   <TextField fx:id="txtColonne" />
                   <TextField fx:id="txtRange" />
                   <TextArea fx:id="txtResume" prefHeight="200.0" prefWidth="200.0" />
-                  <Button fx:id="btnValidez" mnemonicParsing="false" onAction="#handleButtonAction" text="Validez" />
+                  <Button fx:id="btnValidez" mnemonicParsing="false" text="Validez" />
                </children>
             </VBox>
          </children>
@@ -59,7 +59,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TableView fx:id="tabContainer" layoutX="16.0" layoutY="50.0" onMouseClicked="#handleMouseAction" prefHeight="278.0" prefWidth="395.0">
+      <TableView fx:id="tabContainer" layoutX="16.0" layoutY="50.0" prefHeight="278.0" prefWidth="395.0">
         <columns>
           <TableColumn fx:id="colName" prefWidth="65.0" text="Name" />
           <TableColumn fx:id="colAuteur" prefWidth="69.0" text="Auteur" />
@@ -69,8 +69,8 @@
             <TableColumn fx:id="colParution" prefWidth="53.0" text="Parution" />
         </columns>
       </TableView>
-      <Button fx:id="btnAjout" layoutX="118.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Add" />
-      <Button fx:id="btnRemove" layoutX="186.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Remove" />
-      <Button fx:id="btnUpdate" layoutX="273.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Update" />
+      <Button fx:id="btnAjout" layoutX="118.0" layoutY="332.0" mnemonicParsing="false" text="Add" />
+      <Button fx:id="btnRemove" layoutX="186.0" layoutY="332.0" mnemonicParsing="false" text="Remove" />
+      <Button fx:id="btnUpdate" layoutX="273.0" layoutY="332.0" mnemonicParsing="false" text="Update" />
    </children>
 </AnchorPane>
