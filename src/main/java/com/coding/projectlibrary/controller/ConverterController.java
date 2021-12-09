@@ -50,10 +50,22 @@ public class ConverterController implements Initializable {
     private TextField valDecimal;
 
     @FXML
+    private TextField valDecimal4;
+
+    @FXML
+    private TextField romanNum;
+
+    @FXML
+    private Label lblRoman;
+
+    @FXML
     private TextField valHexa;
 
     @FXML
     private Button btnHexa;
+
+    @FXML
+    private Button btnRoman;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -69,7 +81,7 @@ public class ConverterController implements Initializable {
             }
         });
 
-        // Convertir d'un nombre decimal à un nombre binaire
+        // Convertion d'un nombre decimal en une valeur binaire
         btnConvertir.setOnMouseClicked(e -> {
             int decimaltxt = Integer.parseInt(decimal.getText());
             String binaire= "";
@@ -130,7 +142,23 @@ public class ConverterController implements Initializable {
 //            }
 
 
+        // Convertion d'un nombre decimal en nombre romain
+        btnRoman.setOnMouseClicked(e -> {
+            int decimal4Input = Integer.parseInt(valDecimal4.getText());
+            int[] values = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+            String[] romanLiterals = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+            StringBuilder roman = new StringBuilder();
 
+            for(int i=0;i<values.length;i++) {
+                while(decimal4Input >= values[i]) {
+                    decimal4Input -= values[i];
+                    roman.append(romanLiterals[i]);
+                    romanNum.setText(String.valueOf(roman));
+
+                }
+            }
+
+        });
 
 
 

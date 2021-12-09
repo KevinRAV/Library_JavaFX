@@ -7,10 +7,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -50,6 +52,9 @@ public class ImcController implements Initializable {
     private TextField resultatImc;
 
     @FXML
+    private ImageView imageImc;
+
+    @FXML
     private AnchorPane imc;
 
 
@@ -82,8 +87,10 @@ public class ImcController implements Initializable {
             float valeurC = Float.parseFloat(valeurCm.getText());
             float imc =(valeurK / (valeurC  * valeurC ))*10000;
 
+
             if (imc < 18.5){
                 comment.setText(String.valueOf("Vous êtes en situation de sous poids : "+imc));
+//                imageImc.setImage();
             }else if(imc>= 18.5  &&  imc <= 24.9 ){
                 comment.setText(String.valueOf("Vous êtes en situation normale : "+imc));
             }else if(imc >= 25  &&  imc <= 29.9 ){

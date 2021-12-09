@@ -29,7 +29,7 @@
             </Label>
             <TextField fx:id="valeurBinaire" prefHeight="26.0" prefWidth="100.0">
                <HBox.margin>
-                  <Insets left="-10.0" />
+                  <Insets />
                </HBox.margin>
             </TextField>
          </children>
@@ -61,7 +61,7 @@
             </Label>
             <TextField fx:id="decimal2" prefHeight="26.0" prefWidth="100.0">
                <HBox.margin>
-                  <Insets left="-5.0" />
+                  <Insets />
                </HBox.margin>
             </TextField>
          </children>
@@ -93,12 +93,44 @@
             </Label>
             <TextField fx:id="valHexa" prefHeight="26.0" prefWidth="100.0">
                <HBox.margin>
-                  <Insets left="-5.0" />
+                  <Insets />
                </HBox.margin>
             </TextField>
          </children>
          <padding>
             <Insets left="20.0" top="20.0" />
+         </padding>
+      </HBox>
+      <HBox layoutX="14.0" layoutY="384.0" prefHeight="122.0" prefWidth="606.0" spacing="10.0">
+         <children>
+            <Label prefHeight="21.0" prefWidth="105.0" text="Valeur Décimal">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="valDecimal4" prefHeight="26.0" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets left="-15.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="btnRoman" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="Convertir">
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </Button>
+            <Label fx:id="lblRoman" prefHeight="22.0" prefWidth="92.0" text="Roman number">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="romanNum" prefHeight="26.0" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </TextField>
+         </children>
+         <padding>
+            <Insets left="10.0" top="20.0" />
          </padding>
       </HBox>
    </children>
