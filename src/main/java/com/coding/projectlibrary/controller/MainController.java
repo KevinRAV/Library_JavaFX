@@ -32,6 +32,9 @@ public class MainController implements Initializable {
     @FXML
     private AnchorPane library;
 
+    @FXML
+    private AnchorPane imc;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -40,7 +43,16 @@ public class MainController implements Initializable {
         btnLibrary.setOnMouseClicked(e -> {
 
             mainPage.getChildren().add(library);
-        });}
+        }
+
+        );
+        mainPage.getChildren().removeAll(imc);
+
+        btnImc.setOnMouseClicked(e -> {
+
+            mainPage.getChildren().add(imc);
+        });
+    }
 
 
 }

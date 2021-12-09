@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coding.projectlibrary.controller.ImcController">
    <children>
       <HBox fx:id="containerAll" layoutY="71.0" prefHeight="313.0" prefWidth="606.0" spacing="50.0">
@@ -16,15 +15,18 @@
                <children>
                   <Label fx:id="kg" text="Kg :" />
                   <Label fx:id="cm" text="Cm :" />
+                  <Label fx:id="imC" text="Imc" />
                </children>
             </VBox>
             <VBox fx:id="containerDroite" prefHeight="294.0" prefWidth="100.0" spacing="5.0">
                <children>
                   <TextField fx:id="valeurKg" />
                   <TextField fx:id="valeurCm" />
-                  <Button fx:id="btnCalculez" mnemonicParsing="false" onAction="#handleButtonAction" text="Calculez" />
+                  <TextField fx:id="resultatImc" />
+                  <Button fx:id="btnCalculez" mnemonicParsing="false" text="Calculez" />
                </children>
             </VBox>
+            <Label fx:id="comment" prefHeight="89.0" prefWidth="279.0" text="Commentaire" />
          </children>
       </HBox>
    </children>

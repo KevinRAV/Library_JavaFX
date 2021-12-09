@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coding.projectlibrary.controller.MainController">
    <children>
       <VBox fx:id="mainPage" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -55,7 +54,8 @@
                   </VBox>
                </children>
             </HBox>
-            <fx:include fx:id="library" source="hello-view.fxml" />
+            <fx:include fx:id="library" source="Library-view.fxml" />
+            <fx:include fx:id="imc" source="Imc-view.fxml" />
          </children>
       </VBox>
    </children>
