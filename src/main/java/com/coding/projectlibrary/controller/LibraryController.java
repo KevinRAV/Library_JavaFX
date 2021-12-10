@@ -1,5 +1,6 @@
-package com.coding.projectlibrary;
+package com.coding.projectlibrary.controller;
 
+import com.coding.projectlibrary.model.Tab;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,7 +16,7 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class LibraryController implements Initializable {
 
     @FXML
     private Button btnAjout;
@@ -106,16 +107,6 @@ public class Controller implements Initializable {
         });
     }
 
-//        containerCentral.getChildren().removeAll(formvoiture, formvelo);
-//        btnVoiture.setOnMouseClicked(actionVoitureForm -> {
-//            containerCentral.getChildren().removeAll(formvoiture, formvelo);
-//            containerCentral.getChildren().add(formvoiture);
-//        });
-//
-//        btnVelo.setOnMouseClicked(actionVeloForm -> {
-//            containerCentral.getChildren().removeAll(formvoiture, formvelo);
-//            containerCentral.getChildren().add(formvelo);
-//        });
 
     public void removeTab() {
         int getSelectedIndex = tabContainer.getSelectionModel().getSelectedIndex();
@@ -132,14 +123,6 @@ public class Controller implements Initializable {
             }
         });
 
-//        tabID.setTitre(txtTitre.getText());
-//        tabID.setAuteur(txtAuteur.getText());
-//        tabID.setParution(Integer.parseInt(txtParution.getText()));
-//        tabID.setColonne(Integer.parseInt(txtColonne.getText()));
-//        tabID.setRange(Integer.parseInt(txtRange.getText()));
-//        tabID.setResume(txtResume.getText());
-//        tabContainer.getItems().add(tabContainer.getSelectionModel().getSelectedIndex(), tabID);
-//        tabContainer.getItems().remove(tabContainer.getSelectionModel().getSelectedIndex() - 1);
 
     }
 
@@ -166,3 +149,4 @@ public class Controller implements Initializable {
         colResume.setCellValueFactory(new PropertyValueFactory<Tab, String>("resume"));
     }
 }
+

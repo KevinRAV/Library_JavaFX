@@ -1,4 +1,4 @@
-package com.coding.projectlibrary;
+package com.coding.projectlibrary.model;
 
 public class Tab {
     private String titre;

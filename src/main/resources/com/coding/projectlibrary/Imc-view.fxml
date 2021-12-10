@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coding.projectlibrary.controller.ImcController">
+   <children>
+      <HBox fx:id="containerAll" layoutY="71.0" prefHeight="313.0" prefWidth="606.0" spacing="50.0">
+         <children>
+            <VBox fx:id="containerGauche" prefHeight="177.0" prefWidth="52.0" spacing="22.0">
+               <children>
+                  <Label fx:id="kg" text="Kg :" />
+                  <Label fx:id="cm" text="Cm :" />
+                  <Label fx:id="imC" prefHeight="17.0" prefWidth="33.0" text="Imc :">
+                     <VBox.margin>
+                        <Insets top="55.0" />
+                     </VBox.margin></Label>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <VBox fx:id="containerDroite" prefHeight="294.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="valeurKg" />
+                  <TextField fx:id="valeurCm" />
+                  <Button fx:id="btnCalculez" mnemonicParsing="false" text="Calculez">
+                     <VBox.margin>
+                        <Insets left="15.0" top="10.0" />
+                     </VBox.margin></Button>
+                  <TextField fx:id="resultatImc">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></TextField>
+               </children>
+            </VBox>
+            <VBox prefHeight="293.0" prefWidth="180.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" right="20.0" />
+               </HBox.margin>
+               <children>
+                  <ImageView fx:id="imageImc" fitHeight="256.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="150.0" top="20.0" />
+         </padding>
+      </HBox>
+      <HBox layoutY="223.0" prefHeight="227.0" prefWidth="606.0">
+         <children>
+            <Label fx:id="comment" prefHeight="87.0" prefWidth="407.0">
+               <HBox.margin>
+                  <Insets left="150.0" top="100.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
