@@ -69,7 +69,6 @@ public class ConverterController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         btnHexa.setOnMouseClicked(e->{
             int hexaVal = Integer.parseInt(valDecimal.getText());
             String hexa = "";
@@ -93,24 +92,6 @@ public class ConverterController implements Initializable {
         });
 
         btnConvertir1.setOnMouseClicked(e->{
-
-            /*
-            Nous devrons passer en boucle chaque caractère jusqu’à la longueur de la chaîne.
-
-            Vérifie l’occurrence des 1 dans la binaire2,
-            car seuls les 1 sont ajoutés lorsque nous convertissons un binaire en décimal.
-            S’il y a un 1, la longueur de la binaire2 sera d’abord diminuée de 1 et de la valeur
-            de l’itération.
-            Ainsi, dans le cas de 101000, le premier caractère est un 1, ce qui signifie
-            que int longueur contiendra la valeur 5 parce que binaire2.length() est 6 et que la variable
-            d’itération i contient 0, ce qui signifie que 6 - 1 - 0 sera 5.
-
-            Maintenant, comme nous obtenons 5, et il est passé à Math.pow(base, len)
-            comme deuxième argument, alors que le premier argument sera la base.
-            Il appliquera la base 2 aux nombres et ajoutera ensuite tous les nombres,
-            ce qui nous donnera le résultat dans int.
-             */
-
             String binaire2 = valeurBinaire2.getText();
             int total =0;
             for (int i = 0; i < binaire2.length(); i++) {
@@ -122,51 +103,7 @@ public class ConverterController implements Initializable {
             System.out.println(total);
             decimal2.setText(String.valueOf(total));
         });
-
-//            int decimalInput = Integer.parseInt(decimal.getText());
-//            String binaryInput = Integer.toBinaryString(decimalInput);
-//            valeurBinaire.setText(String.valueOf(binaryInput));
-
-            
-
-//            int binary[] = new int[40];
-//            int index = 0;
-//            int decimal = 0;
-//            while(decimalInput > 0){
-//                binary[index++] = decimalInput%2;
-//                decimalInput = decimalInput/2;
-//            }
-//            for(int i = index-1;i >= 0;i--){
-//                valeurBinaire.setText(String.valueOf(binary[i]));
-//            }
-//            System.out.println();//new line
-
-
-        //Convertir un nombre binaire en un nombre decimal
-
-//        btnConvertir.setOnMouseClicked(e -> {
-//
-//            int binaireInput = Integer.parseInt(valeurBinaire.getText());
-//            int decimalInput = Integer.parseInt(decimal.getText());
-//
-//            if(binaireInput <= 0)
-//            {
-//                decimal.setText(String.valueOf(""));
-//            }
-//            else
-//            {
-//                if  (binaireInput%2 != 0) //see if the remainder is odd or even ie. 1 or 0
-//                {
-//                    decimal.setText(String.valueOf((binaireInput/2) + '1')); // if the remainder is 1 then send back through and add 1 to the String
-//                }
-//                else
-//                {
-//                    decimal.setText(String.valueOf((binaireInput/2) + '0')); // if the remainder is 0 append a zero to the String
-//                }
-//            }
-
-
-        // Convertion d'un nombre decimal en nombre romain
+        // Conversion d'un nombre decimal en nombre romain
         btnRoman.setOnMouseClicked(e -> {
             int decimal4Input = Integer.parseInt(valDecimal4.getText());
             int[] values = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
@@ -181,7 +118,6 @@ public class ConverterController implements Initializable {
 
                 }
             }
-
         });
 
 

@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -38,10 +39,18 @@ public class MainController implements Initializable {
     @FXML
     private AnchorPane converter;
 
+    @FXML
+    private MenuItem menuQuit;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         mainPage.getChildren().removeAll(library, imc, converter);
+
+        menuQuit.setOnAction(e->{
+            System.out.println("APPLICATION FERMÉ");
+            System.exit(0);
+        });
 
         btnLibrary.setOnMouseClicked(e -> {
             mainPage.getChildren().removeAll(imc);
