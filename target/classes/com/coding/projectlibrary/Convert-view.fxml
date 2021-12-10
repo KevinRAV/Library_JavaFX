@@ -133,5 +133,37 @@
             <Insets left="10.0" />
          </padding>
       </HBox>
+      <HBox layoutX="4.0" layoutY="303.0" prefHeight="142.0" prefWidth="606.0" spacing="10.0">
+         <children>
+            <Label prefHeight="21.0" prefWidth="105.0" text="Valeur Décimal">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="valDecimal" prefHeight="26.0" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets left="-15.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="btnHexa" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="Convertir">
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </Button>
+            <Label fx:id="binaire11" prefHeight="22.0" prefWidth="92.0" text="Valeur Hexadecimal">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="valHexa" prefHeight="26.0" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets left="-5.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+         <padding>
+            <Insets left="20.0" top="20.0" />
+         </padding>
+      </HBox>
    </children>
 </AnchorPane>

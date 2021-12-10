@@ -74,30 +74,54 @@ public class ConverterController implements Initializable {
             int hexaVal = Integer.parseInt(valDecimal.getText());
             String hexa = "";
             char[] hexchars ={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
-            while (hexaVal >0){
+            while (hexaVal > 0){
                 hexa += hexchars[(hexaVal % 16)];
                 hexaVal = hexaVal / 16;
                 valHexa.setText(hexa);
             }
         });
 
-        // Convertion d'un nombre decimal en une valeur binaire
+// Convertir d'un nombre decimal à un nombre binaire
         btnConvertir.setOnMouseClicked(e -> {
             int decimaltxt = Integer.parseInt(decimal.getText());
             String binaire= "";
             while(decimaltxt != 0){
-                binaire = (decimaltxt % 2) + binaire;
-                decimaltxt = decimaltxt / 2;
+                binaire = (decimaltxt % 2) + binaire;//prend first binaire value
+                decimaltxt = decimaltxt / 2;//
                 valeurBinaire.setText(binaire);
             }
         });
 
-//        btnConvertir1.setOnMouseClicked(e->{
-//            int binaire = Integer.parseInt(valeurBinaire2.getText());
-//
-//
-//            decimal2.setText();
-//        });
+        btnConvertir1.setOnMouseClicked(e->{
+
+            /*
+            Nous devrons passer en boucle chaque caractère jusqu’à la longueur de la chaîne.
+
+            Vérifie l’occurrence des 1 dans la binaire2,
+            car seuls les 1 sont ajoutés lorsque nous convertissons un binaire en décimal.
+            S’il y a un 1, la longueur de la binaire2 sera d’abord diminuée de 1 et de la valeur
+            de l’itération.
+            Ainsi, dans le cas de 101000, le premier caractère est un 1, ce qui signifie
+            que int longueur contiendra la valeur 5 parce que binaire2.length() est 6 et que la variable
+            d’itération i contient 0, ce qui signifie que 6 - 1 - 0 sera 5.
+
+            Maintenant, comme nous obtenons 5, et il est passé à Math.pow(base, len)
+            comme deuxième argument, alors que le premier argument sera la base.
+            Il appliquera la base 2 aux nombres et ajoutera ensuite tous les nombres,
+            ce qui nous donnera le résultat dans int.
+             */
+
+            String binaire2 = valeurBinaire2.getText();
+            int total =0;
+            for (int i = 0; i < binaire2.length(); i++) {
+                if (binaire2.charAt(i) == '1') {
+                    int longueur = binaire2.length() - 1 - i;
+                    total += Math.pow(2, longueur);
+                }
+            }
+            System.out.println(total);
+            decimal2.setText(String.valueOf(total));
+        });
 
 //            int decimalInput = Integer.parseInt(decimal.getText());
 //            String binaryInput = Integer.toBinaryString(decimalInput);
