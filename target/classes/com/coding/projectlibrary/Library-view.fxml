@@ -6,38 +6,46 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coding.projectlibrary.controller.LibraryController">
    <children>
-      <HBox fx:id="containerAll" layoutX="427.0" layoutY="61.0" prefHeight="313.0" prefWidth="169.0">
+      <HBox fx:id="containerAll" layoutX="428.0" layoutY="73.0" prefHeight="328.0" prefWidth="168.0">
          <children>
-            <VBox fx:id="containerGauche" prefHeight="177.0" prefWidth="52.0" spacing="15.0">
+            <VBox fx:id="containerGauche" prefHeight="303.0" prefWidth="64.0" spacing="15.0">
                <children>
                   <Label text="Titre :" />
                   <Label text="Auteur :" />
                   <Label text="Parution :" />
                   <Label text="Colonne :" />
                   <Label text="Rangée :" />
+                  <Label text="URL image : ">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
                   <Label text="Résumé :" />
                </children>
             </VBox>
-            <VBox fx:id="containerDroite" prefHeight="294.0" prefWidth="100.0" spacing="5.0">
+            <VBox fx:id="containerDroite" prefHeight="288.0" prefWidth="117.0" spacing="5.0">
                <children>
                   <TextField fx:id="txtTitre" />
                   <TextField fx:id="txtAuteur" />
                   <TextField fx:id="txtParution" />
                   <TextField fx:id="txtColonne" />
                   <TextField fx:id="txtRange" />
-                  <TextArea fx:id="txtResume" prefHeight="200.0" prefWidth="200.0" />
-                  <Button fx:id="btnValidez" mnemonicParsing="false" onAction="#handleButtonAction" text="Validez" />
+                  <TextField fx:id="getURL" />
+                  <TextArea fx:id="txtResume" prefHeight="106.0" prefWidth="111.0" />
+                  <Button fx:id="btnValidez" mnemonicParsing="false" text="Validez" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <TableView fx:id="tabContainer" layoutX="26.0" layoutY="60.0" onMouseClicked="#handleMouseAction" prefHeight="278.0" prefWidth="395.0">
+      <TableView fx:id="tabContainer" layoutX="26.0" layoutY="45.0" prefHeight="278.0" prefWidth="395.0">
          <columns>
             <TableColumn fx:id="colName" prefWidth="65.0" text="Name" />
             <TableColumn fx:id="colAuteur" prefWidth="69.0" text="Auteur" />
@@ -45,10 +53,17 @@
             <TableColumn fx:id="colColonne" prefWidth="51.0" text="Colonne" />
             <TableColumn fx:id="colRange" prefWidth="52.0" text="Rangée" />
             <TableColumn fx:id="colParution" prefWidth="53.0" text="Parution" />
+            <TableColumn fx:id="imgUrl" prefWidth="75.0" text="imgURL" visible="false" />
          </columns>
       </TableView>
-      <Button fx:id="btnAjout" layoutX="128.0" layoutY="342.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Add" />
-      <Button fx:id="btnRemove" layoutX="196.0" layoutY="342.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Remove" />
-      <Button fx:id="btnUpdate" layoutX="283.0" layoutY="342.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Update" />
+      <Button fx:id="btnAjout" layoutX="123.0" layoutY="373.0" mnemonicParsing="false" text="Add" />
+      <Button fx:id="btnRemove" layoutX="183.0" layoutY="373.0" mnemonicParsing="false" text="Remove" />
+      <Button fx:id="btnUpdate" layoutX="259.0" layoutY="373.0" mnemonicParsing="false" text="Update" />
+      <Label fx:id="lblError" layoutX="130.0" layoutY="344.0" prefHeight="19.0" prefWidth="187.0" textFill="#db3535">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgCover" fitHeight="71.0" fitWidth="111.0" layoutX="485.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -12,14 +10,9 @@
    <children>
       <VBox prefHeight="334.0" prefWidth="393.0">
          <children>
-            <TreeTableView prefHeight="379.0" prefWidth="393.0">
-              <columns>
-                  <TreeTableColumn prefWidth="392.0" text="Armee" />
-              </columns>
-            </TreeTableView>
+            <TreeView fx:id="treeviewTest" prefHeight="343.0" prefWidth="393.0" />
          </children>
       </VBox>
-      <TextField fx:id="valueG" layoutX="393.0" layoutY="87.0" />
-      <TreeView fx:id="treeviewTest" layoutX="393.0" layoutY="113.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="valueG" layoutX="393.0" layoutY="81.0" />
    </children>
 </AnchorPane>
