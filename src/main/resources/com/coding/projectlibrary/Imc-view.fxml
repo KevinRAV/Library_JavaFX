@@ -53,11 +53,11 @@
             <Insets left="150.0" top="20.0" />
          </padding>
       </HBox>
-      <HBox layoutY="223.0" prefHeight="128.0" prefWidth="606.0">
+      <HBox layoutY="223.0" prefHeight="227.0" prefWidth="606.0">
          <children>
-            <Label fx:id="comment" prefHeight="82.0" prefWidth="407.0" text="Commentaire">
+            <Label fx:id="comment" prefHeight="87.0" prefWidth="407.0">
                <HBox.margin>
-                  <Insets left="100.0" top="40.0" />
+                  <Insets left="150.0" top="100.0" />
                </HBox.margin>
             </Label>
          </children>
