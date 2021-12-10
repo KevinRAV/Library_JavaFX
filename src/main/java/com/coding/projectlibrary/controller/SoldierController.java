@@ -1,5 +1,6 @@
 package com.coding.projectlibrary.controller;
 
+import com.coding.projectlibrary.model.armee;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
@@ -19,8 +20,10 @@ public class SoldierController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
             TreeItem<String> Armee = new TreeItem<>("Armée");
             TreeItem<String> General = new TreeItem<>("General");
+//            General.setValue(new armee(Integer.parseInt(valueG.getText()));
             treeviewTest.setRoot(Armee);
             TreeItem<String> Soldat = new TreeItem<>("Soldat");
             Armee.getChildren().addAll(General);
