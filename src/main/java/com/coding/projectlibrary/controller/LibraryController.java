@@ -102,6 +102,7 @@ public class LibraryController implements Initializable {
         imgUrl.setCellValueFactory(new PropertyValueFactory<Tab, String>("url"));
 
         tabContainer.setOnMouseClicked(e->{
+            //Récupère les informations d'un livre depuis une ligne
             try{
                 Tab tab = tabContainer.getSelectionModel().getSelectedItem();
                 txtTitre.setText(tab.getTitre());
@@ -118,6 +119,7 @@ public class LibraryController implements Initializable {
 
         btnValidez.setOnAction(event ->{
             btnValidez.setOnMouseClicked(e->{
+                //Récupère les informations entrées par l'utilisateur
                 try{
                     Tab tabs = new Tab(txtTitre.getText(), txtAuteur.getText(), Integer.parseInt(txtParution.getText()),
                             Integer.parseInt(txtColonne.getText()), Integer.parseInt(txtRange.getText()), txtResume.getText(), getURL.getText());
@@ -161,6 +163,7 @@ public class LibraryController implements Initializable {
 
         btnAjout.setOnAction(event ->{
             btnAjout.setOnMouseClicked(e->{
+                //Permet d'afficher le formulaire
                 containerAll.getChildren().removeAll(containerGauche, containerDroite);
                 containerAll.getChildren().addAll(containerGauche, containerDroite);
             });
@@ -168,6 +171,7 @@ public class LibraryController implements Initializable {
         });
 
         btnRemove.setOnAction(event ->{
+            //Efface un livre sélectionné dans le tableau
             btnRemove.setOnMouseClicked(e->{
                 int getSelectedIndex = tabContainer.getSelectionModel().getSelectedIndex();
                 tabContainer.getItems().remove(getSelectedIndex);
@@ -176,6 +180,7 @@ public class LibraryController implements Initializable {
 
         btnUpdate.setOnAction(event->{
             btnUpdate.setOnMouseClicked(e->{
+                //Récupère un livre selectionné dans le tableau et permet à l'utilisateur de le modifier
                 Tab tab = tabContainer.getSelectionModel().getSelectedItem();
                 try{
                     String getTitre = txtTitre.getText();

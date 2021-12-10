@@ -12,8 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -64,8 +62,6 @@ public class ImcController implements Initializable {
     private Image obesite = new Image("file:src/main/java/com/coding/projectlibrary/image/Obesite.png");
     private Image obesiteSevere = new Image("file:src/main/java/com/coding/projectlibrary/image/ObesiteSevere.png");
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         valeurKg.textProperty().addListener(new ChangeListener<String>() {
@@ -89,11 +85,9 @@ public class ImcController implements Initializable {
         });
 
         btnCalculez.setOnMouseClicked(e->{
-
             float valeurK = Float.parseFloat(valeurKg.getText());
             float valeurC = Float.parseFloat(valeurCm.getText());
             float imc = Math.round((valeurK / (valeurC  * valeurC ))*10000);
-
 
             if (imc < 18.5){
                 comment.setText(String.valueOf("Vous êtes en sous poids : "+imc));

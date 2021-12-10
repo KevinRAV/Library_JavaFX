@@ -1,12 +1,9 @@
 package com.coding.projectlibrary.controller;
 
-import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -63,6 +60,10 @@ public class MainController implements Initializable {
             mainPage.getChildren().removeAll(converter);
             mainPage.getChildren().add(imc);
         });
+
+        btnImc.setOnMouseClicked(e -> {
+
+                }
 
         btnConverter.setOnMouseClicked(e -> {
             mainPage.getChildren().removeAll(library);
