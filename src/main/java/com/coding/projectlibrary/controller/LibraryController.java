@@ -14,6 +14,9 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
+/**
+ * The type Library controller.
+ */
 public class LibraryController implements Initializable {
 
     @FXML
@@ -88,8 +91,12 @@ public class LibraryController implements Initializable {
     @FXML
     private ImageView imgCover;
 
+    /**
+     * The Tablist.
+     */
     public static ObservableList<Tab> tablist;
 
+    // Initialization du tableau
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         containerAll.getChildren().removeAll(containerGauche, containerDroite);
@@ -131,6 +138,7 @@ public class LibraryController implements Initializable {
                     String getResume = txtResume.getText();
                     int year = Calendar.getInstance().get(Calendar.YEAR);
 
+                // Gestion d'erreures
                     if(getTitre.trim().isEmpty()){
                         lblError.setText("VEUILLEZ INSÉRER UN TITRE");
                     }else if(getAuteur.trim().isEmpty()){

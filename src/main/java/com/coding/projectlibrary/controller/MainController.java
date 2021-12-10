@@ -4,12 +4,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TreeView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * The type Main controller.
+ */
 public class MainController implements Initializable {
 
     @FXML
@@ -39,40 +43,45 @@ public class MainController implements Initializable {
     @FXML
     private MenuItem menuQuit;
 
+    @FXML
+    private AnchorPane soldier;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        mainPage.getChildren().removeAll(library, imc, converter);
+        try{
+            // Page principale incluant toutes les fonctionnalitées
+            mainPage.getChildren().removeAll(library, imc, converter, soldier);
 
-        menuQuit.setOnAction(e->{
-            System.out.println("APPLICATION FERMÉ");
-            System.exit(0);
-        });
+            // Option quitter dans la page principale
+            menuQuit.setOnAction(e->{
+                System.out.println("APPLICATION FERMÉ");
+                System.exit(0);
+            });
 
-        btnLibrary.setOnMouseClicked(e -> {
-            mainPage.getChildren().removeAll(imc);
-            mainPage.getChildren().removeAll(converter);
-            mainPage.getChildren().add(library);
-        });
+            // Cache les pages precedente en fonction de la page actuelle
+            btnLibrary.setOnMouseClicked(e -> {
+                mainPage.getChildren().removeAll(imc, converter, soldier);
+                mainPage.getChildren().add(library);
+            });
 
-        btnImc.setOnMouseClicked(e -> {
-            mainPage.getChildren().removeAll(library);
-            mainPage.getChildren().removeAll(converter);
-            mainPage.getChildren().add(imc);
-        });
+            btnImc.setOnMouseClicked(e -> {
+                mainPage.getChildren().removeAll(library, converter, soldier);
+                mainPage.getChildren().add(imc);
+            });
 
-        btnImc.setOnMouseClicked(e -> {
+            btnSoldier.setOnMouseClicked(e -> {
+                mainPage.getChildren().removeAll(library, converter, imc);
+                mainPage.getChildren().add(soldier);
+            });
 
-                }
-
-        btnConverter.setOnMouseClicked(e -> {
-            mainPage.getChildren().removeAll(library);
-            mainPage.getChildren().removeAll(imc);
-            mainPage.getChildren().add(converter);
-        });
+            btnConverter.setOnMouseClicked(e -> {
+                mainPage.getChildren().removeAll(library,imc, soldier);
+                mainPage.getChildren().add(converter);
+            });
+        }catch (Exception e){
+            System.out.println("error");
+        }
     }
-
-
 }
 
 

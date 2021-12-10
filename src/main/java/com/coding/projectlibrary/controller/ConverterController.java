@@ -69,69 +69,62 @@ public class ConverterController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        btnHexa.setOnMouseClicked(e->{
-            int hexaVal = Integer.parseInt(valDecimal.getText());
-            String hexa = "";
-            char[] hexchars ={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
-            while (hexaVal > 0){
-                hexa += hexchars[(hexaVal % 16)];
-                hexaVal = hexaVal / 16;
-                valHexa.setText(hexa);
-            }
-        });
 
-// Convertir d'un nombre decimal à un nombre binaire
-        btnConvertir.setOnMouseClicked(e -> {
-            int decimaltxt = Integer.parseInt(decimal.getText());
-            String binaire= "";
-            while(decimaltxt != 0){
-                binaire = (decimaltxt % 2) + binaire;//prend first binaire value
-                decimaltxt = decimaltxt / 2;//
-                valeurBinaire.setText(binaire);
-            }
-        });
-
-        btnConvertir1.setOnMouseClicked(e->{
-            String binaire2 = valeurBinaire2.getText();
-            int total =0;
-            for (int i = 0; i < binaire2.length(); i++) {
-                if (binaire2.charAt(i) == '1') {
-                    int longueur = binaire2.length() - 1 - i;
-                    total += Math.pow(2, longueur);
+        // Conversion d'un nombre décimal en valeur hexadecimal
+        try{
+            btnHexa.setOnMouseClicked(e->{
+                int hexaVal = Integer.parseInt(valDecimal.getText());
+                String hexa = "";
+                char[] hexchars ={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+                while (hexaVal > 0){
+                    hexa += hexchars[(hexaVal % 16)];
+                    hexaVal = hexaVal / 16;
+                    valHexa.setText(hexa);
                 }
-            }
-            System.out.println(total);
-            decimal2.setText(String.valueOf(total));
-        });
-        // Conversion d'un nombre decimal en nombre romain
-        btnRoman.setOnMouseClicked(e -> {
-            int decimal4Input = Integer.parseInt(valDecimal4.getText());
-            int[] values = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
-            String[] romanLiterals = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
-            StringBuilder roman = new StringBuilder();
+            });
 
-            for(int i=0;i<values.length;i++) {
-                while(decimal4Input >= values[i]) {
-                    decimal4Input -= values[i];
-                    roman.append(romanLiterals[i]);
-                    romanNum.setText(String.valueOf(roman));
-
+            // Convertir d'un nombre decimal à un nombre binaire
+            btnConvertir.setOnMouseClicked(e -> {
+                int decimaltxt = Integer.parseInt(decimal.getText());
+                String binaire= "";
+                while(decimaltxt != 0){
+                    binaire = (decimaltxt % 2) + binaire;
+                    decimaltxt = decimaltxt / 2;
+                    valeurBinaire.setText(binaire);
                 }
-            }
-        });
+            });
 
+            // Conversion d'une valeur binaire en nombre decimal
+            btnConvertir1.setOnMouseClicked(e->{
+                String binaire2 = valeurBinaire2.getText();
+                int total =0;
+                for (int i = 0; i < binaire2.length(); i++) {
+                    if (binaire2.charAt(i) == '1') {
+                        int longueur = binaire2.length() - 1 - i;
+                        total += Math.pow(2, longueur);
+                    }
+                }
+                decimal2.setText(String.valueOf(total));
+            });
 
+            // Conversion d'un nombre decimal en nombre romain
+            btnRoman.setOnMouseClicked(e -> {
+                int decimal4Input = Integer.parseInt(valDecimal4.getText());
+                int[] values = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+                String[] romanLiterals = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+                StringBuilder roman = new StringBuilder();
 
+                for(int i=0;i<values.length;i++) {
+                    while(decimal4Input >= values[i]) {
+                        decimal4Input -= values[i];
+                        roman.append(romanLiterals[i]);
+                        romanNum.setText(String.valueOf(roman));
 
-
-
-
-
-
-
-
-
-
-
+                    }
+                }
+            });
+        }catch (Exception e){
+            System.out.println("error");
+        }
     }
 }

@@ -57,6 +57,7 @@
             <fx:include fx:id="library" source="Library-view.fxml" />
             <fx:include fx:id="imc" source="Imc-view.fxml" />
             <fx:include fx:id="converter" source="Convert-view.fxml" />
+            <fx:include fx:id="soldier" source="Soldier-view.fxml" />
          </children>
       </VBox>
    </children>
